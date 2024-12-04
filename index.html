@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Creative Gallery</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="container mx-auto py-8">
+    <!-- Header -->
+    <header class="header text-center mb-8">
+      <h1 class="text-4xl font-bold">Creative Gallery</h1>
+      <p class="mt-2">Explore and discover amazing designs</p>
+    </header>
+
+    <!-- File Upload Section -->
+    <div class="flex justify-center mb-6">
+      <label class="file-upload flex items-center px-4 py-2 rounded-md shadow-md tracking-wide uppercase border cursor-pointer">
+        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
+          <path d="M16.88 9.17l-7-7A2 2 0 007 2v4H5a2 2 0 00-2 2v7h14v-2h1a1 1 0 00.88-.5l1-1.5a1 1 0 00-.88-1.5h-1V9a1 1 0 00-.12-.5zM10 3.41L15.59 9H10V3.41zM5 8h2v2H5V8zm0 4h2v2H5v-2z" />
+        </svg>
+        <span class="ml-2 text-base leading-normal">Select JSON File</span>
+        <input type="file" id="file-input" class="hidden" accept=".json" />
+      </label>
+    </div>
+
+    <!-- Search and Filter Section -->
+    <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-6">
+      <div class="flex items-center mb-4 md:mb-0">
+        <input
+          type="text"
+          id="search-input"
+          class="w-full md:w-64 px-4 py-2 rounded-md shadow-sm focus:outline-none"
+          placeholder="Search by Creative ID or Status..."
+          disabled
+        />
+      </div>
+      <div class="flex items-center">
+        <label for="tag-filter" class="label mr-2">Filter by Tag:</label>
+        <select
+          id="tag-filter"
+          class="w-full md:w-48 px-3 py-2 rounded-md shadow-sm focus:outline-none"
+          disabled
+        >
+          <option value="All">All Tags</option>
+          <!-- Options will be populated dynamically -->
+        </select>
+      </div>
+    </div>
+
+    <!-- Total Records -->
+    <div id="total-records" class="mb-4"></div>
+
+    <!-- Gallery Section -->
+    <div id="gallery-container" class="grid">
+      <!-- Images will be displayed here -->
+    </div>
+
+    <!-- Pagination Section -->
+    <div id="pagination" class="flex justify-center mt-8">
+      <!-- Pagination items will be generated dynamically -->
+    </div>
+  </div>
+
+  <!-- Masonry.js CDN -->
+  <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
+  <!-- imagesLoaded CDN -->
+  <script src="https://unpkg.com/imagesloaded@4/imagesloaded.pkgd.min.js"></script>
+  <!-- Custom JavaScript -->
+  <script src="script.js"></script>
+</body>
+</html>
