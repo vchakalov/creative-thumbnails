@@ -10,23 +10,17 @@
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <div class="container mx-auto py-8">
+  <!-- Loading Spinner -->
+  <div id="loading-spinner" class="loading-spinner">
+    <div class="spinner"></div>
+  </div>
+
+  <div id="main-content" class="container mx-auto py-8 opacity-0">
     <!-- Header -->
     <header class="header text-center mb-8">
       <h1 class="text-4xl font-bold">Creative Gallery</h1>
       <p class="mt-2">Explore and discover amazing designs</p>
     </header>
-
-    <!-- File Upload Section -->
-    <div class="flex justify-center mb-6">
-      <label class="file-upload flex items-center px-4 py-2 rounded-md shadow-md tracking-wide uppercase border cursor-pointer">
-        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
-          <path d="M16.88 9.17l-7-7A2 2 0 007 2v4H5a2 2 0 00-2 2v7h14v-2h1a1 1 0 00.88-.5l1-1.5a1 1 0 00-.88-1.5h-1V9a1 1 0 00-.12-.5zM10 3.41L15.59 9H10V3.41zM5 8h2v2H5V8zm0 4h2v2H5v-2z" />
-        </svg>
-        <span class="ml-2 text-base leading-normal">Select JSON File</span>
-        <input type="file" id="file-input" class="hidden" accept=".json" />
-      </label>
-    </div>
 
     <!-- Search and Filter Section -->
     <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-6">
@@ -57,7 +51,7 @@
 
     <!-- Gallery Section -->
     <div id="gallery-container" class="grid">
-      <!-- Images will be displayed here -->
+      <!-- Skeleton loaders will be displayed here -->
     </div>
 
     <!-- Pagination Section -->
