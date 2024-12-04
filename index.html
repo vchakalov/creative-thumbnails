@@ -1,70 +1,82 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
+  <!-- Required meta tags -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Creative Gallery</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <!-- Tailwind CSS CDN -->
-  <script src="https://cdn.tailwindcss.com"></script>
+
   <!-- Custom CSS -->
-  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="styles.css">
+
+  <!-- Font Awesome CDN for Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <!-- Firebase SDKs -->
+  <!-- The core Firebase JS SDK is always required and must be listed first -->
+  <script src="https://www.gstatic.com/firebasejs/9.17.1/firebase-app-compat.js"></script>
+  <!-- Firebase Auth -->
+  <script src="https://www.gstatic.com/firebasejs/9.17.1/firebase-auth-compat.js"></script>
+  <!-- Firebase Firestore -->
+  <script src="https://www.gstatic.com/firebasejs/9.17.1/firebase-firestore-compat.js"></script>
+
+  <!-- Masonry.js Library -->
+  <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
+
+  <!-- ImagesLoaded Library (required for Masonry) -->
+  <script src="https://unpkg.com/imagesloaded@4/imagesloaded.pkgd.min.js"></script>
+
+  <!-- Custom JavaScript -->
+  <script src="script.js" defer></script>
 </head>
 <body>
-  <!-- Loading Spinner -->
-  <div id="loading-spinner" class="loading-spinner">
-    <div class="spinner"></div>
-  </div>
-
-  <div id="main-content" class="container mx-auto py-8 opacity-0">
+  <!-- Main Content -->
+  <div id="main-content" class="container opacity-0">
     <!-- Header -->
-    <header class="header text-center mb-8">
-      <h1 class="text-4xl font-bold">Creative Gallery</h1>
-      <p class="mt-2">Explore and discover amazing designs</p>
+    <header class="header">
+      <h1>Creative Gallery</h1>
+      <p>Explore and discover amazing designs</p>
     </header>
 
+    <!-- Navigation Tabs -->
+    <nav class="navigation">
+      <ul>
+        <li>
+          <a href="#" id="gallery-tab" class="tab active"><i class="fas fa-th"></i> Gallery</a>
+        </li>
+        <li>
+          <a href="#" id="favorites-tab" class="tab"><i class="fas fa-star"></i> Favorites</a>
+        </li>
+      </ul>
+    </nav>
+
     <!-- Search and Filter Section -->
-    <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-6">
-      <div class="flex items-center mb-4 md:mb-0">
-        <input
-          type="text"
-          id="search-input"
-          class="w-full md:w-64 px-4 py-2 rounded-md shadow-sm focus:outline-none"
-          placeholder="Search by Creative ID or Status..."
-          disabled
-        />
+    <div id="controls" class="controls">
+      <div class="search-input">
+        <input type="text" id="search-input" placeholder="Search by Creative ID or Status..." disabled>
+        <i class="fas fa-search search-icon"></i>
       </div>
-      <div class="flex items-center">
-        <label for="tag-filter" class="label mr-2">Filter by Tag:</label>
-        <select
-          id="tag-filter"
-          class="w-full md:w-48 px-3 py-2 rounded-md shadow-sm focus:outline-none"
-          disabled
-        >
+      <div class="tag-filter">
+        <label for="tag-filter" class="label"><i class="fas fa-filter"></i> Filter by Tag:</label>
+        <select id="tag-filter" disabled>
           <option value="All">All Tags</option>
-          <!-- Options will be populated dynamically -->
         </select>
       </div>
     </div>
 
     <!-- Total Records -->
-    <div id="total-records" class="mb-4"></div>
+    <div id="total-records" class="total-records">Total Records: 0</div>
 
     <!-- Gallery Section -->
-    <div id="gallery-container" class="grid">
-      <!-- Skeleton loaders will be displayed here -->
-    </div>
+    <div id="gallery-container" class="gallery-grid"></div>
 
     <!-- Pagination Section -->
-    <div id="pagination" class="flex justify-center mt-8">
-      <!-- Pagination items will be generated dynamically -->
-    </div>
+    <div id="pagination" class="pagination-container"></div>
   </div>
 
-  <!-- Masonry.js CDN -->
-  <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
-  <!-- imagesLoaded CDN -->
-  <script src="https://unpkg.com/imagesloaded@4/imagesloaded.pkgd.min.js"></script>
-  <!-- Custom JavaScript -->
-  <script src="script.js"></script>
+  <!-- Loading Spinner -->
+  <div id="loading-spinner" class="loading-spinner">
+    <div class="spinner"></div>
+  </div>
 </body>
 </html>
